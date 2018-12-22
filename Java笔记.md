@@ -1505,7 +1505,7 @@
     -path: ObjectType<Shape>// 一个作为结点移动路径的形状
     +PathTransition()// 创建一个空的PathTransition
     +PathTransition(duration: Duration,path: Shape)
-     +PathTransition(duration: Duration,path: Shape,node: Node)
+    +PathTransition(duration: Duration,path: Shape,node: Node)
 
 #### 15.11.2 FadeTransition
 #### 15.11.3 Timeline
