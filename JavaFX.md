@@ -264,7 +264,7 @@
     +ImageView(image:Image)// 使用给定的图像创建一个 ImageView
     +ImageView(filenameOrURL: String)// 使用从一个文件或URL载入的图像创建一个 ImageView
 - 用法
-    
+>
      new ImageView("image/us.gif")；等价于
      Image image = new Image("image/us.gif");
      ImageView imageView = new ImageView(image);   
@@ -512,7 +512,9 @@
 
 #### 14.10.1 Text
 > Text 类定义一个结点，用于在一个起始点 (x,y) 处显示一个字符串，
+
 > Text 类的对象通常置于一个面板中，面板左上角的坐标是(0,0),右下角的坐标是(pane.getWidth(),pane.getHeight())
+
 > 一个字符串可以通过 \n 分割显示在多行。
 >
     java.scene.text.Text
@@ -610,8 +612,11 @@
     }
 #### 14.10.3 Rectangle
 > 矩形通过参数 x y width height arcwidth archeight 定义
+
 > x y 为矩形的左上角
+
 > 参数 aw(arcwidth) 表示圆角处的水平直径
+
 > 参数 ah(archeight) 表示圆角处的垂直直径
 
     java.scene.shape.Rectangle
@@ -669,6 +674,7 @@
     }
 #### 14.10.4 Circle 和 Ellipse
 > Circle 由 centerX centerY 和 radius 定义
+
 > Ellipse 由 centerX centerY radiusX 和 radiusY 定义
 
     javafx.scene.shape.Circle
@@ -836,7 +842,7 @@
 
 > Java 采用一个基于委派的模型来进行事件处理：
     一个源对象触发一个事件，然后一个对该事件感兴趣的对象处理它。后者叫一个事件处理器或事件监听器
-  
+>
     import javafx.application.Application;
     import javafx.geometry.Pos;
     import javafx.scene.Scene;
