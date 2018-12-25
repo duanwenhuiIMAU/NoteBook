@@ -207,7 +207,7 @@
     for(int i = 1; i < myList.length; i++){
         myList[i-1]=myList[i];
     }
-    myList[myList.length() - 1] = temp;
+    myList[myList.length - 1] = temp;
 ### 7.4 foreach 循环
     for(double e: myList){// e必须与 myList 数据类型相同
         System.out.println(e);
