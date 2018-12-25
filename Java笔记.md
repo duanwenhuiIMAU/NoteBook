@@ -438,9 +438,9 @@
 #### 9.7.2 Random 类
     java.util.Random
     +Random()               //以当前时间作为种子创建一个 Random 对象
-    +Random(seed : long)    //以一个特定值作为种子创建一个 Random 对象
+    +Random(seed: long)    //以一个特定值作为种子创建一个 Random 对象
     +nextInt() : int        //返回一个随机的 int 值
-    +nextInt(n : int) : int //返回一个 0 到 n（不包括 n）之间的随机的 int 值
+    +nextInt(n: int) : int //返回一个 0 到 n（不包括 n）之间的随机的 int 值
     +nextLong() : long      //返回一个随机的 long 值
     +nextDouble() : double  //返回一个 0.0 到 1.0（不包括 1.0）之间的随机 double 的值
     +nextFloat() : float    //返回一个 0.0F 到 1.0F（不包括 1.0F）之间的随机 float 的值
@@ -563,8 +563,10 @@
 #### 10.7.3 替换和拆分字符串
     java.lang.String
     +replace(oldChar: char,newChar :char): String// 将字符串中所有的匹配的字符替换成新的字符，然后返回新的字符串。
-    +replaceFirst(oldString: String,newString :String): String// 将字符串中第一个匹配的子字符串替换成新的子字符串，然后返回新的字符串。
-    +replaceAll(oldString: String,newString :String): String// 将字符串中所有的匹配的子字符串替换成新的子字符串，然后返回新的字符串。
+    +replaceFirst(oldString: String,newString :String): String// 将字符串中第一个匹配的子字符串替换成新的子字符串，
+                                                              //然后返回新的字符串。
+    +replaceAll(oldString: String,newString :String): String// 将字符串中所有的匹配的子字符串替换成新的子字符串，
+                                                            //然后返回新的字符串。
     +split(delimiter: String): String[]// 返回一个字符串数组，其中包含被分隔符拆分的子字符串集
 >
     如下
@@ -638,10 +640,15 @@
     好处避免冗余和使系统易于理解和维护
 ### 11.2 父类和子类
 > 继承使得你可以定义一个通用的类（即父类），之后继承该类为一个更特定的类（即子类）
+
     在 Java 术语，如果类 C1 继承自另一个类 C2，那么就将 C1 称为子类（subclass），将 C2 称为超类(superclass).
+
     超类也称为父类（parent class）或基类（base class），子类又称为继承类（extends class）或派生类（derived class）。
+
 > 子类和它的父类形成了“是一种”（is-a）的关系。
+
 > 继承的关键点
+
 - 和习惯性说法不同，子类并不是父类的子集。一个子类通常比它的父类包含更多的信息和方法。
 - 父类中的私有数据域在该类外是不可访问的。只有父类中定义了公共的访问器和修改器，那么可以通过这些公共的访问器或修改器来访问修改它们。
 - 不是所有的“是一种”（is-a）的关系都用继承来建模。
@@ -861,15 +868,15 @@
     ArrayList<AConcreateType> list = new ArrayList<>();
 ### 11.12 关于列表的一些有用方法
 - 从数组中创建列表
-
+>
     String[] array = {"red","green","blue"};
     ArrayList<String> list = new ArrayList<>(Arrays.asList(array));
 - 从列表中创建数组
-
+>
     String[] array = new String[list.size()];
     list.toArray(array);
 - 对列表排序并找出最大最小值和随机打乱
-
+》
     Integer[] array = {3,5,95,4};
     ArrayList<Integer> list = new ArrayList<>(Arrays.asList(array));
     java.util.Collection.sort(list);
@@ -963,7 +970,7 @@ private       |       O|      X|             X|         X|
 
     - Object
         - Throwable
-             - Error(系统异常)
+            - Error(系统异常)
                 - LinkageError
                 - VirtualMachineError
             - Exception(异常)
@@ -1006,6 +1013,7 @@ private       |       O|      X|             X|         X|
 > 声明异常的关键字是 throws 抛出异常的关键字是 throw
 #### 12.4.3 捕获异常
 > 处理方法如下
+
     try{
         // statement
     }
@@ -1160,7 +1168,7 @@ private       |       O|      X|             X|         X|
 
     +getName(): String// 返回文件名
 
-    +getPath)(): String// 返回 File 对象代表的完整的文件或目录的绝对路径名
+    +getPath(): String// 返回 File 对象代表的完整的文件或目录的绝对路径名
 
     +getParent(): String// 返回父路径(绝对路径名)
 
@@ -1180,7 +1188,8 @@ private       |       O|      X|             X|         X|
 ### 12.11 文件的输入于输出
 > 使用 Scanner 类从文件中读取文本数据，使用 PrintWriter 类向文本文件写入数据
 
-    File 对象封装了文件或路径的属性，但是它即不包括创建文件的方法，也不包括向/从文件读/写数据（称为数据的输入输出简称I/O）的方法。
+    File 对象封装了文件或路径的属性，但是它即不包括创建文件的方法，也不包括向/从文件读/写数据（称为数据的输入
+    输出简称I/O）的方法。
 
     有两种类型的文件：文本和二进制的。文本文件的本质上是储存在磁盘上的字符。
 #### 12.11.1 使用 PrintWriter 来写数据
@@ -1319,7 +1328,9 @@ private       |       O|      X|             X|         X|
 - 抽象类不能使用 new 操作符来初始化。但是，仍然可以定义它的构造方法，这个构造方法在它的子类的构造方法中调用。
 - 包含抽象方法的类必须是抽象类。但可以定义一个不包含抽象方法的抽象类。
 - 子类可以重写父类的方法并将它定义为抽象的。在当父类的方法实现在子类中变的无效时使用。但此时子类必须定义为抽象的。
+- 即使子类的父类是具体的，这个子类也可以是抽象的
 - 不能使用 new 操作符从一个抽象类创建一个实例，但是抽象类可以作用一种数据类型。因此，如下正确。
+>
     AbstractBaseClass[] obj = new AbstractBaseClass[10];
     obj[0] = new subClass();
 ### 13.3 接口
@@ -1338,9 +1349,9 @@ private       |       O|      X|             X|         X|
 > 在 Java 中接口被看作一种特殊的类。就像常规类一样，每个接口都被编译为独立的字节码文件。使用接口很像抽象类。
 - 可以使用接口作为引用变量的数据类型或类型转换的结果
 - 接口不可使用 new 操作符创建接口实例
-- 使用接口时需要 implement 关键字如下
+- 使用接口时需要 implements 关键字如下
 
-    class Chicken implement Edible{}
+    class Chicken implements Edible{}
 >
     由于接口中所有的数据域都是 public static final 而且所有的方法都是 public abstract，所以Java 可以忽略这些修饰符
     public inferface T{
@@ -1357,11 +1368,11 @@ private       |       O|      X|             X|         X|
     还可以在接口中存在共有的静态方法。
     接口中的公有的静态方法和类的公有的静态方法一样使用。
 ### 13.4 Comparable 接口
->  Comparable 接口定义了  comparableTo 方法，用于比较对象。
+>  Comparable 接口定义了 comparableTo 方法，用于比较对象。
 
     其定义如下
     package java.lang;
-    public interface  Comparable<E>{
+    public interface Comparable<E>{
         public int comparableTo(E o);
     // comparableTo 方法判断这个对象相对于给定对象 o 的顺序，并且当这个对象小于，等于或大于给定
     // 对象的 o 时，分别返回负整数 0 或正整数。
@@ -1394,7 +1405,7 @@ private       |       O|      X|             X|         X|
 
     类是强关系，接口时弱关系。
 ### 13.9 类的设计原则
-> 内聚性 一致性 封装性 清晰性 完整性 实例域静态 继承和聚合 接口和抽象类
+> 内聚性 一致性 封装性 清晰性 完整性 实例与静态 继承和聚合 接口和抽象类
 ## 17 二进制I/O
 ## 18 递归
 JavaFX的内容在下一页  [JavaFX](JavaFX.md)
